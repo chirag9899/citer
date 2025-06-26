@@ -12,4 +12,11 @@ A full-stack, production-ready research assistant for semantic search and citati
 - **Usage Analytics**: Tracks and visualizes most-cited articles per session.
 
 ---
-Updated README content
+
+## 🏗️ Architecture
+- **Frontend**: Next.js (React), Tailwind CSS
+- **Backend**: Next.js API routes
+- **Vector DB**: Pinecone (cloud-native, production-grade)
+- **LLM**: Gemini (for answer synthesis)
+- **Embeddings**
+
