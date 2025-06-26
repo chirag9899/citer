@@ -184,3 +184,7 @@ This modular approach makes the backend easily swappable for future needs or cos
 MIT
 
 ---
+
+## ⏱️ NOTE
+
+I built this project in one day due to a busy schedule. My focus was on delivering a working, extensible, and well-documented research assistant MVP. There are many areas for future polish and expansion!
