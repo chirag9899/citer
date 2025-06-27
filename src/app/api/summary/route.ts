@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getLLMAnswer } from '@/lib/GeminiService';
-import apiService from '@/lib/ApiService';
+import { fetchChunksByIds } from '@/lib/PineconeService';
 import { ChunkMetadata } from '@/lib/types';
 
 export async function POST(req: NextRequest) {
@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     if (!Array.isArray(chunkIds) || chunkIds.length === 0) {
       return NextResponse.json({ error: 'chunkIds must be a non-empty array' }, { status: 400 });
     }
-    const chunks: ChunkMetadata[] = await apiService.getChunksByIds(chunkIds);
+    const chunks: ChunkMetadata[] = await fetchChunksByIds(chunkIds);
     if (!chunks || chunks.length === 0) {
       return NextResponse.json({ error: 'No chunks found for provided IDs' }, { status: 404 });
     }

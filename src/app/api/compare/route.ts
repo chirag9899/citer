@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import apiService from '@/lib/ApiService';
+import { fetchChunksByIds } from '@/lib/PineconeService';
 import { ChunkMetadata } from '@/lib/types';
 
 export async function POST(req: NextRequest) {
@@ -8,8 +8,8 @@ export async function POST(req: NextRequest) {
     if (!Array.isArray(chunkIdsA) || !Array.isArray(chunkIdsB) || chunkIdsA.length === 0 || chunkIdsB.length === 0) {
       return NextResponse.json({ error: 'chunkIdsA and chunkIdsB must be non-empty arrays' }, { status: 400 });
     }
-    const chunksA: ChunkMetadata[] = await apiService.getChunksByIds(chunkIdsA);
-    const chunksB: ChunkMetadata[] = await apiService.getChunksByIds(chunkIdsB);
+    const chunksA: ChunkMetadata[] = await fetchChunksByIds(chunkIdsA);
+    const chunksB: ChunkMetadata[] = await fetchChunksByIds(chunkIdsB);
     if (!chunksA.length || !chunksB.length) {
       return NextResponse.json({ error: 'No chunks found for provided IDs' }, { status: 404 });
     }
