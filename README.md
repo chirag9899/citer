@@ -2,6 +2,8 @@
 
 A full-stack, production-ready research assistant for semantic search and citation over scientific document chunks, built with Next.js, Pinecone, and Gemini/OpenAI LLMs.
 
+You can access the application at [CITER: GenAI Research Assistant](https://citer.vercel.app/).
+
 ---
 
 ## 🚀 Overview
